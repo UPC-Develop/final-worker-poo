@@ -16,6 +16,10 @@ public class Persona {
     public String departamento;
     public String pais;
 
+    public Persona(){
+
+    }
+
     public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String tipoDocumento, String numeroDocumento, LocalDate fechaNacimiento, Integer edad, String direccion, String distrito, String departamento, String pais) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;

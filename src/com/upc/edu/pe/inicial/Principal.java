@@ -4,17 +4,15 @@ import com.upc.edu.pe.entidad.Asesor;
 import com.upc.edu.pe.entidad.Cliente;
 import com.upc.edu.pe.entidad.Factura;
 import com.upc.edu.pe.entidad.Persona;
+import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
 import com.upc.edu.pe.negocio.DocumentoPago;
 import com.upc.edu.pe.negocio.Empresa;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 
 public class Principal {
-
 
 
     static Empresa empresa = new Empresa(5);
@@ -43,21 +41,21 @@ public class Principal {
                 33, "Av. 2 de Mayo 787",
                 "San Isidro", "Lima", "Perú", "CI25898",
                 "Av. 2 de Mayo 787, San Isidro, Lima, Perú",
-                "Trio Stand Alone", LocalDate.of(1900,Month.SEPTEMBER, 15));
+                "Trio Stand Alone", LocalDate.of(1900, Month.SEPTEMBER, 15));
 
         Persona clienteDos = new Cliente("Patricia", "Cortez", "Huaman",
                 "DNI", "45675456", LocalDate.of(1991, Month.MAY, 12),
                 30, "Mz V, Lt 8, Urb. Pachacamac",
                 "Villa el Salvador", "Lima", "Perú", "CI89765",
                 "Mz V, Lt 8, Urb. Pachacamac, Villa el Salvador, Lima, Perú",
-                "Móvil Postpago Control", LocalDate.of(1900,Month.SEPTEMBER, 15));
+                "Móvil Postpago Control", LocalDate.of(1900, Month.SEPTEMBER, 15));
 
         Persona clienteTres = new Cliente("William", "Navarro", "Vargas",
                 "CEX", "114567876", LocalDate.of(1985, Month.APRIL, 24),
                 35, "Av. Los Jardines 201",
                 "San Juan de Miraflores", "Lima", "Perú", "CI98767",
                 "Av. Los Jardines 201, San Juan de Miraflores, Lima, Perú",
-                "Duo Cable + Internet", LocalDate.of(1900,Month.JUNE, 30));
+                "Duo Cable + Internet", LocalDate.of(1900, Month.JUNE, 30));
 
         empresa.registrarPersona(clienteUno);
         empresa.registrarPersona(clienteDos);
@@ -66,42 +64,42 @@ public class Principal {
 
     }
 
-    public  static void cargarFactura(){
-        Factura facturaUno = new Factura("FACTURA","F374829289",
-                "CI25898", LocalDate.of(2021,Month.JANUARY, 15),
-                LocalDate.of(2021,Month.FEBRUARY, 15), 165.80, "", "Pagado");
+    public static void cargarFactura() {
+        Factura facturaUno = new Factura("FACTURA", "F374829289",
+                "CI25898", LocalDate.of(2021, Month.JANUARY, 15),
+                LocalDate.of(2021, Month.FEBRUARY, 15), 165.80, "", "Pagado");
 
-        Factura facturaDos = new Factura("FACTURA","F374829290",
-                "CI25898", LocalDate.of(2021,Month.FEBRUARY, 15),LocalDate.of(2021,Month.MARCH, 15), 165.80, "","Pagado");
+        Factura facturaDos = new Factura("FACTURA", "F374829290",
+                "CI25898", LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15), 165.80, "", "Pagado");
 
-        Factura facturaTres = new Factura("FACTURA","F374829291",
+        Factura facturaTres = new Factura("FACTURA", "F374829291",
                 "CI25898",
-                LocalDate.of(2021,Month.MARCH, 15),LocalDate.of(2021,Month.APRIL, 15), 165.80, "", "Pendiente");
+                LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15), 165.80, "", "Pendiente");
 
 
-        Factura facturaCuatro = new Factura("FACTURA","CI89765",
+        Factura facturaCuatro = new Factura("FACTURA", "CI89765",
                 "CI89765",
-                LocalDate.of(2020,Month.DECEMBER, 15),LocalDate.of(2021,Month.JANUARY, 15), 45.50,"", "Disputa");
-        Factura facturaCinco = new Factura("FACTURA","F789876569",
+                LocalDate.of(2020, Month.DECEMBER, 15), LocalDate.of(2021, Month.JANUARY, 15), 45.50, "", "Disputa");
+        Factura facturaCinco = new Factura("FACTURA", "F789876569",
                 "CI89765",
-                LocalDate.of(2021,Month.JANUARY, 15),LocalDate.of(2021,Month.FEBRUARY, 15), 45.50, "", "Pagado");
-        Factura facturaSeis = new Factura("FACTURA","F789876570",
+                LocalDate.of(2021, Month.JANUARY, 15), LocalDate.of(2021, Month.FEBRUARY, 15), 45.50, "", "Pagado");
+        Factura facturaSeis = new Factura("FACTURA", "F789876570",
                 "CI89765",
-                LocalDate.of(2021,Month.FEBRUARY, 15),LocalDate.of(2021,Month.MARCH, 15), 45.50, "", "Pagado");
-        Factura facturaSiete = new Factura("FACTURA","F789876571",
+                LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15), 45.50, "", "Pagado");
+        Factura facturaSiete = new Factura("FACTURA", "F789876571",
                 "CI89765",
-                LocalDate.of(2021,Month.MARCH, 15),LocalDate.of(2021,Month.APRIL, 15), 45.50, "", "Pendiente");
+                LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15), 45.50, "", "Pendiente");
 
 
-        Factura facturaOcho = new Factura("FACTURA","F656898761",
+        Factura facturaOcho = new Factura("FACTURA", "F656898761",
                 "CI98767",
-                LocalDate.of(2021,Month.JANUARY, 15),LocalDate.of(2021,Month.FEBRUARY, 15), 120, "","Pagado");
-        Factura facturaNueve = new Factura("FACTURA","F656898762",
+                LocalDate.of(2021, Month.JANUARY, 15), LocalDate.of(2021, Month.FEBRUARY, 15), 120, "", "Pagado");
+        Factura facturaNueve = new Factura("FACTURA", "F656898762",
                 "CI98767",
-                LocalDate.of(2021,Month.FEBRUARY, 15),LocalDate.of(2021,Month.MARCH, 15), 120,"", "Pagado");
-        Factura facturaDiez = new Factura("FACTURA","F656898763",
+                LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15), 120, "", "Pagado");
+        Factura facturaDiez = new Factura("FACTURA", "F656898763",
                 "CI98767",
-                LocalDate.of(2021,Month.MARCH, 15),LocalDate.of(2021,Month.APRIL, 15), 120,"", "Pagado");
+                LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15), 120, "", "Pagado");
 
 
         documentoPago.registrarFactura(facturaUno);
@@ -116,60 +114,61 @@ public class Principal {
         documentoPago.registrarFactura(facturaDiez);
 
 
-
     }
 
-    public static void main(String[] args) {
+    public static boolean AutenticarAsesor(String usuario, String clave) throws UsuarioNoEncontradoException {
+
+        boolean autenticar = false;
+
+        for (Persona persona : empresa.getPersonas()
+        ) {
+
+            Asesor asesor = (Asesor) persona;
+            autenticar = asesor.validarUsuario(usuario, clave);
+
+            if (autenticar == true)
+                return autenticar;
+
+        }
+
+        return autenticar;
+    }
+
+
+    public static void main(String[] args) throws UsuarioNoEncontradoException {
 
         cargarAsesor();
         cargarCliente();
         cargarFactura();
 
-
-
-
-        for (Persona persona: empresa.getPersonas()) {
-           System.out.println(persona);
-        }
-
-        for (Factura factura: documentoPago.getFacturas()) {
-            System.out.println(factura);
-        }
-
-        /*String usuario;
+        String usuario;
         String clave;
+        boolean autenticar = false;
+        boolean salir = false;
+        int opcionSeleccionada; //Guardaremos la opcion del usuario
 
         Scanner sn = new Scanner(System.in);
-
         System.out.println("Ingrese su usuario:");
-
         usuario = sn.nextLine();
-
         System.out.println("Ingrese su contraseña:");
-
         clave = sn.nextLine();
 
-        System.out.println(usuario + " " + clave);*/
+        try {
+            autenticar = AutenticarAsesor(usuario, clave);
 
+            while (!salir) {
 
+                System.out.println("1. Registro de fraccionamiento de deuda");
+                System.out.println("2. Consulta de estado de solicitud de fraccionamiento");
+                System.out.println("3. Consulta de facturas");
+                System.out.println("4. Consulta de cliente");
+                System.out.println("5. Salir");
 
+                System.out.println("Por favor seleccione una de las opciones...");
 
-        /*boolean salir = false;
-        int opcion; //Guardaremos la opcion del usuario
+                opcionSeleccionada = sn.nextInt();
 
-        while (!salir) {
-
-            System.out.println("1. Opcion 1");
-            System.out.println("2. Opcion 2");
-            System.out.println("3. Opcion 3");
-            System.out.println("4. Salir");
-
-            try {
-
-                System.out.println("Escribe una de las opciones");
-                opcion = sn.nextInt();
-
-                switch (opcion) {
+                switch (opcionSeleccionada) {
                     case 1:
                         System.out.println("Has seleccionado la opcion 1");
                         break;
@@ -180,15 +179,32 @@ public class Principal {
                         System.out.println("Has seleccionado la opcion 3");
                         break;
                     case 4:
+                        System.out.println("Has seleccionado la opcion 4");
+                        break;
+                    case 5:
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 4");
+                        System.out.println("Esta opción no se encuentra disponible");
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                sn.next();
             }
+
+        } catch (UsuarioNoEncontradoException ex) {
+            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Por favor seleccione una opción del menú");
+            sn.next();
+        } catch (Exception ex) {
+            System.out.println("Error no controlado: " + ex.getMessage());
+        }
+
+
+        /*for (Persona persona: empresa.getPersonas()) {
+           System.out.println(persona);
+        }
+
+        for (Factura factura: documentoPago.getFacturas()) {
+            System.out.println(factura);
         }*/
     }
 }

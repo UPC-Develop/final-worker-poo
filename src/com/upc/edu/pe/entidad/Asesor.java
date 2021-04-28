@@ -1,13 +1,19 @@
 package com.upc.edu.pe.entidad;
 
+import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
+import com.upc.edu.pe.negocio.Usuario;
+
 import java.time.LocalDate;
 
-public class Asesor extends Persona {
+public class Asesor extends Persona implements Usuario {
 
     public String codigoAsesor;
     public String usuario;
     public String clave;
 
+    public Asesor() {
+
+    }
 
     public Asesor(String nombre, String apellidoPaterno, String apellidoMaterno, String tipoDocumento, String numeroDocumento, LocalDate fechaNacimiento, Integer edad, String direccion, String distrito, String departamento, String pais, String usuario, String clave, String codigoAsesor) {
         super(nombre, apellidoPaterno, apellidoMaterno, tipoDocumento, numeroDocumento, fechaNacimiento, edad, direccion, distrito, departamento, pais);
@@ -15,6 +21,8 @@ public class Asesor extends Persona {
         this.clave = clave;
         this.codigoAsesor = codigoAsesor;
     }
+
+
 
     public String getCodigoAsesor() {
         return codigoAsesor;
@@ -58,5 +66,17 @@ public class Asesor extends Persona {
                 ", departamento='" + departamento + '\'' +
                 ", pais='" + pais + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean validarUsuario(String usuario, String clave) throws UsuarioNoEncontradoException {
+
+        String usuarioAsesor = getUsuario();
+        String claveUsuario = getClave();
+
+        if(usuario.equals(usuarioAsesor) && claveUsuario.equals(clave))
+            return true;
+        else
+            throw new UsuarioNoEncontradoException("Usuario o clave incorrectos");
     }
 }
