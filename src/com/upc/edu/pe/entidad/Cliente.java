@@ -1,13 +1,24 @@
 package com.upc.edu.pe.entidad;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Cliente extends Persona {
 
     public String codigoCliente;
     public String direccionInstalacion;
     public String tipoServicio;
-    public Date fechaFacturacion;
+    public LocalDate cicloFacturacion;
+
+    public Cliente(String nombre, String apellidoPaterno, String apellidoMaterno, String tipoDocumento, String numeroDocumento, LocalDate fechaNacimiento, Integer edad, String direccion, String distrito, String departamento, String pais, String codigoCliente, String direccionInstalacion, String tipoServicio, LocalDate cicloFacturacion) {
+        super(nombre, apellidoPaterno, apellidoMaterno, tipoDocumento, numeroDocumento, fechaNacimiento, edad, direccion, distrito, departamento, pais);
+        this.codigoCliente = codigoCliente;
+        this.direccionInstalacion = direccionInstalacion;
+        this.tipoServicio = tipoServicio;
+        this.cicloFacturacion = cicloFacturacion;
+    }
+
+
 
     public String getCodigoCliente() {
         return codigoCliente;
@@ -33,13 +44,32 @@ public class Cliente extends Persona {
         this.tipoServicio = tipoServicio;
     }
 
-    public Date getFechaFacturacion() {
-        return fechaFacturacion;
+    public LocalDate getCicloFacturacion() {
+        return cicloFacturacion;
     }
 
-    public void setFechaFacturacion(Date fechaFacturacion) {
-        this.fechaFacturacion = fechaFacturacion;
+    public void setCicloFacturacion(LocalDate cicloFacturacion) {
+        this.cicloFacturacion = cicloFacturacion;
     }
 
-
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "codigoCliente='" + codigoCliente + '\'' +
+                ", direccionInstalacion='" + direccionInstalacion + '\'' +
+                ", tipoServicio='" + tipoServicio + '\'' +
+                ", cicloFacturacion=" + cicloFacturacion.getDayOfMonth() +
+                ", nombre='" + nombre + '\'' +
+                ", apellidoPaterno='" + apellidoPaterno + '\'' +
+                ", apellidoMaterno='" + apellidoMaterno + '\'' +
+                ", tipoDocumento='" + tipoDocumento + '\'' +
+                ", numeroDocumento='" + numeroDocumento + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", edad=" + edad +
+                ", direccion='" + direccion + '\'' +
+                ", distrito='" + distrito + '\'' +
+                ", departamento='" + departamento + '\'' +
+                ", pais='" + pais + '\'' +
+                '}';
+    }
 }

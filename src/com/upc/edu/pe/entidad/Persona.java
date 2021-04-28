@@ -1,26 +1,33 @@
 package com.upc.edu.pe.entidad;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Persona {
 
-    public String codigo;
     public String nombre;
     public String apellidoPaterno;
     public String apellidoMaterno;
     public String tipoDocumento;
     public String numeroDocumento;
-    public Date fechaNacimiento;
-    public String edad;
+    public LocalDate fechaNacimiento;
+    public Integer edad;
     public String direccion;
     public String distrito;
+    public String departamento;
+    public String pais;
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String tipoDocumento, String numeroDocumento, LocalDate fechaNacimiento, Integer edad, String direccion, String distrito, String departamento, String pais) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.distrito = distrito;
+        this.departamento = departamento;
+        this.pais = pais;
     }
 
     public String getNombre() {
@@ -63,19 +70,19 @@ public class Persona {
         this.numeroDocumento = numeroDocumento;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 
@@ -111,6 +118,20 @@ public class Persona {
         this.pais = pais;
     }
 
-    public String departamento;
-    public String pais;
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidoPaterno='" + apellidoPaterno + '\'' +
+                ", apellidoMaterno='" + apellidoMaterno + '\'' +
+                ", tipoDocumento='" + tipoDocumento + '\'' +
+                ", numeroDocumento='" + numeroDocumento + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", edad=" + edad +
+                ", direccion='" + direccion + '\'' +
+                ", distrito='" + distrito + '\'' +
+                ", departamento='" + departamento + '\'' +
+                ", pais='" + pais + '\'' +
+                '}';
+    }
 }
