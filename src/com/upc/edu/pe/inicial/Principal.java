@@ -8,7 +8,6 @@ import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
 import com.upc.edu.pe.negocio.DocumentoPago;
 import com.upc.edu.pe.negocio.Empresa;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
@@ -148,7 +147,6 @@ public class Principal {
         return suma;
     }
 
-
     public  static  void registrarSolicitudFraccionamiento(Fraccionamiento solicitudfraccionamiento) throws FraccionamientoExistenteException,
             FacturaMontoDisputaExeption, FacturaPendienteNoEncontradaException {
 
@@ -210,6 +208,7 @@ public class Principal {
             System.out.println("La persona buscada no es cliente de la empresa.");
 
     }
+
     public static void main(String[] args) throws UsuarioNoEncontradoException {
 
         cargarAsesor();
@@ -231,69 +230,68 @@ public class Principal {
 
         try {
             AutenticarAsesor(usuario, clave);
-
             while (!salir) {
+                try {
+                    System.out.println("\n");
+                    System.out.println("--------------Menu de opciones--------------");
+                    System.out.println("1. Consulta de cliente");
+                    System.out.println("2. Registro de fraccionamiento de deuda");
+                    System.out.println("3. Consulta de facturas");
+                    System.out.println("4. Consulta de fraccionamiento");
+                    System.out.println("5. Salir");
+                    System.out.println("--------------------------------------------");
+                    System.out.println("Por favor seleccione una de las opciones...");
+                    System.out.println("--------------------------------------------");
 
-                System.out.println("1. Consulta de cliente");
-                System.out.println("2. Registro de fraccionamiento de deuda");
-                System.out.println("3. Consulta de facturas");
-                System.out.println("4. Consulta de fraccionamiento");
-                System.out.println("5. Salir");
+                    opcionSeleccionada = sn.nextInt();
+                    Scanner sc = new Scanner(System.in);
+                    switch (opcionSeleccionada) {
+                        case 1:
+                            System.out.println("Ingrese número de documento del cliente:");
+                            numeroDocumentoCliente = sc.nextLine();
+                            buscarCliente(numeroDocumentoCliente);
+                            break;
+                        case 2:
 
-                System.out.println("Por favor seleccione una de las opciones...");
+                            System.out.println("Ingrese número de documento del cliente:");
+                            numeroDocumentoCliente = sc.nextLine();
 
-                opcionSeleccionada = sn.nextInt();
-                Scanner sc = new Scanner(System.in);
-                switch (opcionSeleccionada) {
-                    case 1:
-                        System.out.println("Ingrese número de documento del cliente:");
-                        numeroDocumentoCliente = sc.nextLine();
-                        buscarCliente(numeroDocumentoCliente);
-                        break;
-                    case 2:
-
-                        System.out.println("Ingrese número de documento del cliente:");
-                        numeroDocumentoCliente = sc.nextLine();
-
-                        Fraccionamiento fraccionamiento = new Fraccionamiento("FRACCIONAMIENTO", "65646463",
-                                numeroDocumentoCliente,"",0,"Pendiente", LocalDate.now(), 0,
-                                0, 0, 0);
-                        registrarSolicitudFraccionamiento(fraccionamiento);
-                        System.out.println("Se registro la solicitud correctamente");
-                        break;
-                    case 3:
-                        System.out.println("Has seleccionado la opcion 3");
-                        break;
-                    case 4:
-                        System.out.println("Has seleccionado la opcion 4");
-                        break;
-                    case 5:
-                        salir = true;
-                        break;
-                    default:
-                        System.out.println("Esta opción no se encuentra disponible");
+                            Fraccionamiento fraccionamiento = new Fraccionamiento("FRACCIONAMIENTO", "65646463",
+                                    numeroDocumentoCliente,"",0,"Pendiente", LocalDate.now(), 0,
+                                    0, 0, 0);
+                            registrarSolicitudFraccionamiento(fraccionamiento);
+                            System.out.println("Se registro la solicitud correctamente");
+                            break;
+                        case 3:
+                            System.out.println("Has seleccionado la opcion 3");
+                            break;
+                        case 4:
+                            System.out.println("Has seleccionado la opcion 4");
+                            break;
+                        case 5:
+                            salir = true;
+                            break;
+                        default:
+                            System.out.println("Esta opción no se encuentra disponible");
+                    }
+                }catch (InputMismatchException ex) {
+                    System.out.println("Por favor seleccione una opción del menú");
+                    sn.next();
+                } catch (FacturaPendienteNoEncontradaException ex) {
+                    System.out.println(ex.getMessage());
+                }catch (FraccionamientoExistenteException ex) {
+                    System.out.println(ex.getMessage());
+                }catch (FacturaMontoDisputaExeption ex) {
+                    System.out.println(ex.getMessage());
+                }catch (Exception ex) {
+                    System.out.println("Error no controlado: " + ex.getMessage());
                 }
             }
 
         } catch (UsuarioNoEncontradoException ex) {
             System.out.println(ex.getMessage());
-        } catch (InputMismatchException ex) {
-            System.out.println("Por favor seleccione una opción del menú");
-            sn.next();
-        } catch (FacturaPendienteNoEncontradaException ex) {
-            System.out.println(ex.getMessage());
-            System.out.println("Por favor seleccione una opción del menú");
-            sn.next();
-        }catch (FraccionamientoExistenteException ex) {
-            System.out.println(ex.getMessage());
-            System.out.println("Por favor seleccione una opción del menú");
-            sn.next();
-        }catch (FacturaMontoDisputaExeption ex) {
-            System.out.println(ex.getMessage());
         }catch (Exception ex) {
             System.out.println("Error no controlado: " + ex.getMessage());
-            System.out.println("Por favor seleccione una opción del menú");
-            sn.next();
         }
     }
 }
