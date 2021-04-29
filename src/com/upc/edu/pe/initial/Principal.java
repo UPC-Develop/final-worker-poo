@@ -19,7 +19,6 @@ public class Principal {
     static DocumentoPago documentoPago = new DocumentoPago(15);
 
     public static void cargarAsesor() {
-
         Persona asesorUno = new Asesor("Carlos Alberto", "Torres", "Miranda",
                 "DNI", "47876890", LocalDate.of(1990, Month.FEBRUARY, 16),
                 31, "Av. Los Jardines 456", "Miraflores", "Lima",
@@ -32,9 +31,7 @@ public class Principal {
 
         empresa.registrarPersona(asesorUno);
         empresa.registrarPersona(asesorDos);
-
     }
-
     public static void cargarCliente() {
         Persona clienteUno = new Cliente("Adriana", "Cajas", "Cortez",
                 "DNI", "45767876", LocalDate.of(1987, Month.SEPTEMBER, 4),
@@ -60,10 +57,7 @@ public class Principal {
         empresa.registrarPersona(clienteUno);
         empresa.registrarPersona(clienteDos);
         empresa.registrarPersona(clienteTres);
-
-
     }
-
     public static void cargarFactura() {
         Factura facturaUno = new Factura("FACTURA", "F374829289",
                 "45767876","", 165.80, "Pagado", LocalDate.of(2021, Month.JANUARY, 15),
@@ -73,7 +67,6 @@ public class Principal {
         Factura facturaTres = new Factura("FACTURA", "F374829291",
                 "45767876", "",165.80, "Pendiente",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
-
 
         Factura facturaCuatro = new Factura("FACTURA", "F789876568",
                 "45675456","", 45.50, "Disputa",
@@ -113,11 +106,8 @@ public class Principal {
 
 
     }
-
     public static boolean AutenticarAsesor(String usuario, String clave) throws UsuarioNoEncontradoException {
-
         boolean autenticar = false;
-
         for (Persona persona : empresa.getPersonas()
         ) {
 
@@ -126,16 +116,15 @@ public class Principal {
 
             if (autenticar == true)
                 return autenticar;
-
         }
-
         return autenticar;
     }
-
     public static ArrayList<Documento> obtenerDocumento(String codigoCliente, String tipoDocumento, String estado) {
         return documentoPago.getDocumentos(codigoCliente, tipoDocumento, estado);
     }
-
+    public static ArrayList<Documento> obtenerDocumento(String codigoCliente, String tipoDocumento) {
+        return documentoPago.getDocumentos(codigoCliente, tipoDocumento);
+    }
     public static double sumarFactura(ArrayList<Documento> facturas){
         double suma = 0;
         for (Documento factura: facturas
@@ -143,10 +132,8 @@ public class Principal {
 
             suma=suma + factura.getMonto();
         }
-
         return suma;
     }
-
     public  static  void registrarSolicitudFraccionamiento(Fraccionamiento solicitudfraccionamiento) throws FraccionamientoExistenteException,
             FacturaMontoDisputaExeption, FacturaPendienteNoEncontradaException {
 
@@ -188,12 +175,10 @@ public class Principal {
                     documentoPago.registrarDocumento(fraccionamiento);
 
                     System.out.println(fraccionamiento);
-
                 }
             }
         }
     }
-
     public  static  void buscarCliente(String numeroDocumentoCliente){
         boolean econtrar = false;
         for (Persona persona: empresa.getPersonas()
@@ -208,7 +193,6 @@ public class Principal {
             System.out.println("La persona buscada no es cliente de la empresa.");
 
     }
-
     public static void main(String[] args) throws UsuarioNoEncontradoException {
 
         cargarAsesor();
@@ -218,6 +202,8 @@ public class Principal {
         String usuario;
         String clave;
         String numeroDocumentoCliente;
+        String tipoDocumento;
+        ArrayList<Documento> documentos;
         boolean autenticar = false;
         boolean salir = false;
         int opcionSeleccionada;
@@ -252,10 +238,8 @@ public class Principal {
                             buscarCliente(numeroDocumentoCliente);
                             break;
                         case 2:
-
                             System.out.println("Ingrese número de documento del cliente:");
                             numeroDocumentoCliente = sc.nextLine();
-
                             Fraccionamiento fraccionamiento = new Fraccionamiento("FRACCIONAMIENTO", "65646463",
                                     numeroDocumentoCliente,"",0,"Pendiente", LocalDate.now(), 0,
                                     0, 0, 0);
@@ -263,10 +247,32 @@ public class Principal {
                             System.out.println("Se registro la solicitud correctamente");
                             break;
                         case 3:
-                            System.out.println("Has seleccionado la opcion 3");
+                            System.out.println("Ingrese número de documento del cliente:");
+                            numeroDocumentoCliente = sc.nextLine();
+
+                            System.out.println("Ingrese tipo de documento:");
+                            tipoDocumento = sc.nextLine();
+
+                            documentos = obtenerDocumento(numeroDocumentoCliente, tipoDocumento);
+
+                            for (Documento documento:documentos
+                            ) {
+                                System.out.println(documentos);
+                            }
                             break;
                         case 4:
-                            System.out.println("Has seleccionado la opcion 4");
+                            System.out.println("Ingrese número de documento del cliente:");
+                            numeroDocumentoCliente = sc.nextLine();
+
+                            System.out.println("Ingrese tipo de documento:");
+                            tipoDocumento = sc.nextLine();
+
+                            documentos = obtenerDocumento(numeroDocumentoCliente, tipoDocumento);
+
+                            for (Documento documento:documentos
+                            ) {
+                                System.out.println(documentos);
+                            }
                             break;
                         case 5:
                             salir = true;
