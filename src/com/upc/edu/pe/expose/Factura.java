@@ -1,7 +1,6 @@
-package com.upc.edu.pe.entidad;
+package com.upc.edu.pe.expose;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Factura extends Documento{
 

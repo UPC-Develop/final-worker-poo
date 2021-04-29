@@ -1,7 +1,6 @@
-package com.upc.edu.pe.entidad;
+package com.upc.edu.pe.expose;
 
 import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
-import com.upc.edu.pe.negocio.Usuario;
 
 import java.time.LocalDate;
 

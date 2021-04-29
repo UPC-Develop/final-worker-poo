@@ -1,12 +1,12 @@
-package com.upc.edu.pe.inicial;
+package com.upc.edu.pe.initial;
 
-import com.upc.edu.pe.entidad.*;
+import com.upc.edu.pe.expose.*;
 import com.upc.edu.pe.exception.FacturaMontoDisputaExeption;
 import com.upc.edu.pe.exception.FacturaPendienteNoEncontradaException;
 import com.upc.edu.pe.exception.FraccionamientoExistenteException;
 import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
-import com.upc.edu.pe.negocio.DocumentoPago;
-import com.upc.edu.pe.negocio.Empresa;
+import com.upc.edu.pe.expose.DocumentoPago;
+import com.upc.edu.pe.expose.Empresa;
 
 import java.time.LocalDate;
 import java.time.Month;

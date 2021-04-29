@@ -1,6 +1,4 @@
-package com.upc.edu.pe.negocio;
-
-import com.upc.edu.pe.entidad.Persona;
+package com.upc.edu.pe.expose;
 
 public class Empresa {
 

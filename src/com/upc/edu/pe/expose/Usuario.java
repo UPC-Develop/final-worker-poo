@@ -1,4 +1,4 @@
-package com.upc.edu.pe.negocio;
+package com.upc.edu.pe.expose;
 
 import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
 

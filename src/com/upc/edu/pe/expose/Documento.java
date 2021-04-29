@@ -1,4 +1,4 @@
-package com.upc.edu.pe.entidad;
+package com.upc.edu.pe.expose;
 
 public class Documento {
 
