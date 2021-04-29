@@ -8,14 +8,13 @@ public class Factura extends Documento{
 
     public LocalDate fechaEmision;
     public LocalDate fechaPago;
-    public double monto;
 
-    public Factura(String tipoDocumento, String numeroDocumento, String codigoCliente,  LocalDate fechaEmision, LocalDate fechaPago, double monto, String descripcion, String estado) {
-        super(tipoDocumento, numeroDocumento, codigoCliente, descripcion, estado);
+    public Factura(String tipoDocumento, String numeroDocumento, String codigoCliente, String descripcion, double monto, String estado, LocalDate fechaEmision, LocalDate fechaPago) {
+        super(tipoDocumento, numeroDocumento, codigoCliente, descripcion, monto, estado);
         this.fechaEmision = fechaEmision;
         this.fechaPago = fechaPago;
-        this.monto = monto;
     }
+
 
     public LocalDate getFechaEmision() {
         return fechaEmision;
@@ -25,9 +24,7 @@ public class Factura extends Documento{
         return fechaPago;
     }
 
-    public double getMonto() {
-        return monto;
-    }
+
 
     @Override
     public String toString() {

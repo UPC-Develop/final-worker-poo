@@ -2,17 +2,22 @@ package com.upc.edu.pe.entidad;
 
 public class Documento {
 
-    public Documento(String tipoDocumento, String numeroDocumento, String codigoCliente, String descripcion, String estado) {
+
+    public String tipoDocumento;
+
+    public Documento(String tipoDocumento, String numeroDocumento, String codigoCliente, String descripcion, double monto, String estado) {
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.codigoCliente = codigoCliente;
         this.descripcion = descripcion;
+        this.monto = monto;
         this.estado = estado;
     }
-    public String tipoDocumento;
+
     public String numeroDocumento;
     public String codigoCliente;
     public String descripcion;
+    public double monto;
     public String estado;
 
     public String getTipoDocumento() {
@@ -47,6 +52,14 @@ public class Documento {
         this.descripcion = descripcion;
     }
 
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -62,6 +75,7 @@ public class Documento {
                 ", numeroDocumento='" + numeroDocumento + '\'' +
                 ", codigoCliente='" + codigoCliente + '\'' +
                 ", descripcion='" + descripcion + '\'' +
+                ", monto=" + monto +
                 ", estado='" + estado + '\'' +
                 '}';
     }
