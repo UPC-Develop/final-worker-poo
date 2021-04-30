@@ -1,11 +1,11 @@
 package com.upc.edu.pe.initial;
 
 import com.upc.edu.pe.expose.*;
-import com.upc.edu.pe.exception.FacturaMontoDisputaExeption;
-import com.upc.edu.pe.exception.FacturaPendienteNoEncontradaException;
+import com.upc.edu.pe.exception.ReciboMontoDisputaExeption;
+import com.upc.edu.pe.exception.ReciboPendienteNoEncontradoException;
 import com.upc.edu.pe.exception.FraccionamientoExistenteException;
 import com.upc.edu.pe.exception.UsuarioNoEncontradoException;
-import com.upc.edu.pe.expose.DocumentoPago;
+import com.upc.edu.pe.expose.DocumentoEmpresa;
 import com.upc.edu.pe.expose.Empresa;
 
 import java.time.LocalDate;
@@ -16,10 +16,9 @@ public class Principal {
 
 
     static Empresa empresa = new Empresa(5);
-    static DocumentoPago documentoPago = new DocumentoPago(15);
+    static DocumentoEmpresa documentoEmpresa = new DocumentoEmpresa(15);
 
     public static void cargarAsesor() {
-
         Persona asesorUno = new Asesor("Carlos Alberto", "Torres", "Miranda",
                 "DNI", "47876890", LocalDate.of(1990, Month.FEBRUARY, 16),
                 31, "Av. Los Jardines 456", "Miraflores", "Lima",
@@ -32,9 +31,7 @@ public class Principal {
 
         empresa.registrarPersona(asesorUno);
         empresa.registrarPersona(asesorDos);
-
     }
-
     public static void cargarCliente() {
         Persona clienteUno = new Cliente("Adriana", "Cajas", "Cortez",
                 "DNI", "45767876", LocalDate.of(1987, Month.SEPTEMBER, 4),
@@ -60,64 +57,57 @@ public class Principal {
         empresa.registrarPersona(clienteUno);
         empresa.registrarPersona(clienteDos);
         empresa.registrarPersona(clienteTres);
-
-
     }
-
-    public static void cargarFactura() {
-        Factura facturaUno = new Factura("FACTURA", "F374829289",
+    public static void cargarRecibo() {
+        Recibo reciboUno = new Recibo("RECIBO", "F374829289",
                 "45767876","", 165.80, "Pagado", LocalDate.of(2021, Month.JANUARY, 15),
                 LocalDate.of(2021, Month.FEBRUARY, 15));
-        Factura facturaDos = new Factura("FACTURA", "F374829290",
+        Recibo reciboDos = new Recibo("RECIBO", "F374829290",
                 "45767876", "", 165.80, "Pagado", LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15));
-        Factura facturaTres = new Factura("FACTURA", "F374829291",
+        Recibo reciboTres = new Recibo("RECIBO", "F374829291",
                 "45767876", "",165.80, "Pendiente",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
 
-
-        Factura facturaCuatro = new Factura("FACTURA", "F789876568",
+        Recibo reciboCuatro = new Recibo("RECIBO", "F789876568",
                 "45675456","", 45.50, "Disputa",
                 LocalDate.of(2020, Month.DECEMBER, 15), LocalDate.of(2021, Month.JANUARY, 15));
-        Factura facturaCinco = new Factura("FACTURA", "F789876569","45675456",
+        Recibo reciboCinco = new Recibo("RECIBO", "F789876569","45675456",
                 "",45.50,"Pagado",
                 LocalDate.of(2021, Month.JANUARY, 15), LocalDate.of(2021, Month.FEBRUARY, 15));
-        Factura facturaSeis = new Factura("FACTURA", "F789876570",
+        Recibo reciboSeis = new Recibo("RECIBO", "F789876570",
                 "45675456","",45.50,"Pagado",
                 LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15));
-        Factura facturaSiete = new Factura("FACTURA", "F789876571",
+        Recibo reciboSiete = new Recibo("RECIBO", "F789876571",
                 "45675456","", 45.50, "Pendiente",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
 
 
-        Factura facturaOcho = new Factura("FACTURA", "F656898761",
+        Recibo reciboOcho = new Recibo("RECIBO", "F656898761",
                 "114567876","", 120,"Pagado",
                 LocalDate.of(2021, Month.JANUARY, 15), LocalDate.of(2021, Month.FEBRUARY, 15));
-        Factura facturaNueve = new Factura("FACTURA", "F656898762",
+        Recibo reciboNueve = new Recibo("RECIBO", "F656898762",
                 "114567876","", 120, "Pagado",
                 LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15));
-        Factura facturaDiez = new Factura("FACTURA", "F656898763",
+        Recibo reciboDiez = new Recibo("RECIBO", "F656898763",
                 "114567876","", 120,"Pagado",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
 
 
-        documentoPago.registrarDocumento(facturaUno);
-        documentoPago.registrarDocumento(facturaDos);
-        documentoPago.registrarDocumento(facturaTres);
-        documentoPago.registrarDocumento(facturaCuatro);
-        documentoPago.registrarDocumento(facturaCinco);
-        documentoPago.registrarDocumento(facturaSeis);
-        documentoPago.registrarDocumento(facturaSiete);
-        documentoPago.registrarDocumento(facturaOcho);
-        documentoPago.registrarDocumento(facturaNueve);
-        documentoPago.registrarDocumento(facturaDiez);
+        documentoEmpresa.registrarDocumento(reciboUno);
+        documentoEmpresa.registrarDocumento(reciboDos);
+        documentoEmpresa.registrarDocumento(reciboTres);
+        documentoEmpresa.registrarDocumento(reciboCuatro);
+        documentoEmpresa.registrarDocumento(reciboCinco);
+        documentoEmpresa.registrarDocumento(reciboSeis);
+        documentoEmpresa.registrarDocumento(reciboSiete);
+        documentoEmpresa.registrarDocumento(reciboOcho);
+        documentoEmpresa.registrarDocumento(reciboNueve);
+        documentoEmpresa.registrarDocumento(reciboDiez);
 
 
     }
-
     public static boolean AutenticarAsesor(String usuario, String clave) throws UsuarioNoEncontradoException {
-
         boolean autenticar = false;
-
         for (Persona persona : empresa.getPersonas()
         ) {
 
@@ -126,29 +116,26 @@ public class Principal {
 
             if (autenticar == true)
                 return autenticar;
-
         }
-
         return autenticar;
     }
-
     public static ArrayList<Documento> obtenerDocumento(String codigoCliente, String tipoDocumento, String estado) {
-        return documentoPago.getDocumentos(codigoCliente, tipoDocumento, estado);
+        return documentoEmpresa.getDocumentos(codigoCliente, tipoDocumento, estado);
     }
-
-    public static double sumarFactura(ArrayList<Documento> facturas){
+    public static ArrayList<Documento> obtenerDocumento(String codigoCliente, String tipoDocumento) {
+        return documentoEmpresa.getDocumentos(codigoCliente, tipoDocumento);
+    }
+    public static double sumarRecibo(ArrayList<Documento> recibos){
         double suma = 0;
-        for (Documento factura: facturas
+        for (Documento recibo: recibos
              ) {
 
-            suma=suma + factura.getMonto();
+            suma=suma + recibo.getMonto();
         }
-
         return suma;
     }
-
     public  static  void registrarSolicitudFraccionamiento(Fraccionamiento solicitudfraccionamiento) throws FraccionamientoExistenteException,
-            FacturaMontoDisputaExeption, FacturaPendienteNoEncontradaException {
+            ReciboMontoDisputaExeption, ReciboPendienteNoEncontradoException {
 
         ArrayList<Documento> solicitudes = obtenerDocumento(solicitudfraccionamiento.getCodigoCliente(), solicitudfraccionamiento.getTipoDocumento(),
                 solicitudfraccionamiento.getEstado());
@@ -157,17 +144,17 @@ public class Principal {
             throw new FraccionamientoExistenteException("Ya tiene una solicitud de fraccionamiento ingresada.");
         }else{
 
-            ArrayList<Documento> facturas = obtenerDocumento(solicitudfraccionamiento.getCodigoCliente(), "FACTURA", "Disputa");
+            ArrayList<Documento> recibos = obtenerDocumento(solicitudfraccionamiento.getCodigoCliente(), "Recibo", "Disputa");
 
-            if (!facturas.isEmpty()){
-                throw new FacturaMontoDisputaExeption("Usted tiene " + facturas.size() + " factura(s) con monto en disputa. No puede presentar una solicitud de fraccionamiento de deuda.");
+            if (!recibos.isEmpty()){
+                throw new ReciboMontoDisputaExeption("Usted tiene " + recibos.size() + " recibo(s) con monto en disputa. No puede presentar una solicitud de fraccionamiento de deuda.");
             }else {
-                facturas = obtenerDocumento(solicitudfraccionamiento.getCodigoCliente(), "FACTURA", "Pendiente");
-                if (facturas.isEmpty()){
-                    throw new FacturaPendienteNoEncontradaException("Usted no cuenta con facturas pendientes de pago. No puede presentar una solicitud de fraccionamiento de deuda.");
+                recibos = obtenerDocumento(solicitudfraccionamiento.getCodigoCliente(), "RECIBO", "Pendiente");
+                if (recibos.isEmpty()){
+                    throw new ReciboPendienteNoEncontradoException("Usted no cuenta con recibos pendientes de pago. No puede presentar una solicitud de fraccionamiento de deuda.");
                 }else{
 
-                    double totalMontoFactura = sumarFactura(facturas);
+                    double totalMontoRecibo = sumarRecibo(recibos);
                     double montoDescuento = 0;
                     int numeroCuota = 0;
                     double montoCuota = 0;
@@ -175,7 +162,7 @@ public class Principal {
                     Fraccionamiento fraccionamiento = new Fraccionamiento(solicitudfraccionamiento.getTipoDocumento(),
                             solicitudfraccionamiento.getNumeroDocumento(), solicitudfraccionamiento.getCodigoCliente(),
                             solicitudfraccionamiento.getDescripcion(),0, solicitudfraccionamiento.getEstado(), solicitudfraccionamiento.getFechaSolicitud(),
-                            totalMontoFactura, 0,0, 0 );
+                            totalMontoRecibo, 0,0, 0 );
 
                     montoDescuento = fraccionamiento.getMontoDescuento();
                     fraccionamiento.setMontoDescuento(montoDescuento);
@@ -183,17 +170,15 @@ public class Principal {
                     fraccionamiento.setNumeroCuota(numeroCuota);
                     montoCuota = fraccionamiento.getMontoCuota();
                     fraccionamiento.setMontoCuota(montoCuota);
-                    fraccionamiento.setMonto(totalMontoFactura-montoDescuento);
+                    fraccionamiento.setMonto(totalMontoRecibo-montoDescuento);
                     fraccionamiento.setEstado("Pendiente");
-                    documentoPago.registrarDocumento(fraccionamiento);
+                    documentoEmpresa.registrarDocumento(fraccionamiento);
 
                     System.out.println(fraccionamiento);
-
                 }
             }
         }
     }
-
     public  static  void buscarCliente(String numeroDocumentoCliente){
         boolean econtrar = false;
         for (Persona persona: empresa.getPersonas()
@@ -208,16 +193,17 @@ public class Principal {
             System.out.println("La persona buscada no es cliente de la empresa.");
 
     }
-
     public static void main(String[] args) throws UsuarioNoEncontradoException {
 
         cargarAsesor();
         cargarCliente();
-        cargarFactura();
+        cargarRecibo();
 
         String usuario;
         String clave;
         String numeroDocumentoCliente;
+        String tipoDocumento;
+        ArrayList<Documento> documentos;
         boolean autenticar = false;
         boolean salir = false;
         int opcionSeleccionada;
@@ -236,7 +222,7 @@ public class Principal {
                     System.out.println("--------------Menu de opciones--------------");
                     System.out.println("1. Consulta de cliente");
                     System.out.println("2. Registro de fraccionamiento de deuda");
-                    System.out.println("3. Consulta de facturas");
+                    System.out.println("3. Consulta de recibos");
                     System.out.println("4. Consulta de fraccionamiento");
                     System.out.println("5. Salir");
                     System.out.println("--------------------------------------------");
@@ -252,10 +238,8 @@ public class Principal {
                             buscarCliente(numeroDocumentoCliente);
                             break;
                         case 2:
-
                             System.out.println("Ingrese número de documento del cliente:");
                             numeroDocumentoCliente = sc.nextLine();
-
                             Fraccionamiento fraccionamiento = new Fraccionamiento("FRACCIONAMIENTO", "65646463",
                                     numeroDocumentoCliente,"",0,"Pendiente", LocalDate.now(), 0,
                                     0, 0, 0);
@@ -263,10 +247,32 @@ public class Principal {
                             System.out.println("Se registro la solicitud correctamente");
                             break;
                         case 3:
-                            System.out.println("Has seleccionado la opcion 3");
+                            System.out.println("Ingrese número de documento del cliente:");
+                            numeroDocumentoCliente = sc.nextLine();
+
+                            System.out.println("Ingrese tipo de documento:");
+                            tipoDocumento = sc.nextLine();
+
+                            documentos = obtenerDocumento(numeroDocumentoCliente, tipoDocumento);
+
+                            for (Documento documento:documentos
+                            ) {
+                                System.out.println(documentos);
+                            }
                             break;
                         case 4:
-                            System.out.println("Has seleccionado la opcion 4");
+                            System.out.println("Ingrese número de documento del cliente:");
+                            numeroDocumentoCliente = sc.nextLine();
+
+                            System.out.println("Ingrese tipo de documento:");
+                            tipoDocumento = sc.nextLine();
+
+                            documentos = obtenerDocumento(numeroDocumentoCliente, tipoDocumento);
+
+                            for (Documento documento:documentos
+                            ) {
+                                System.out.println(documentos);
+                            }
                             break;
                         case 5:
                             salir = true;
@@ -277,11 +283,11 @@ public class Principal {
                 }catch (InputMismatchException ex) {
                     System.out.println("Por favor seleccione una opción del menú");
                     sn.next();
-                } catch (FacturaPendienteNoEncontradaException ex) {
+                } catch (ReciboPendienteNoEncontradoException ex) {
                     System.out.println(ex.getMessage());
                 }catch (FraccionamientoExistenteException ex) {
                     System.out.println(ex.getMessage());
-                }catch (FacturaMontoDisputaExeption ex) {
+                }catch (ReciboMontoDisputaExeption ex) {
                     System.out.println(ex.getMessage());
                 }catch (Exception ex) {
                     System.out.println("Error no controlado: " + ex.getMessage());

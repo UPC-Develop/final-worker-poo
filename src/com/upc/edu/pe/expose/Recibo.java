@@ -2,13 +2,13 @@ package com.upc.edu.pe.expose;
 
 import java.time.LocalDate;
 
-public class Factura extends Documento{
+public class Recibo extends Documento{
 
 
     public LocalDate fechaEmision;
     public LocalDate fechaPago;
 
-    public Factura(String tipoDocumento, String numeroDocumento, String codigoCliente, String descripcion, double monto, String estado, LocalDate fechaEmision, LocalDate fechaPago) {
+    public Recibo(String tipoDocumento, String numeroDocumento, String codigoCliente, String descripcion, double monto, String estado, LocalDate fechaEmision, LocalDate fechaPago) {
         super(tipoDocumento, numeroDocumento, codigoCliente, descripcion, monto, estado);
         this.fechaEmision = fechaEmision;
         this.fechaPago = fechaPago;
@@ -27,7 +27,7 @@ public class Factura extends Documento{
 
     @Override
     public String toString() {
-        return "Factura{" +
+        return "Recibo{" +
                 "fechaEmision=" + fechaEmision +
                 ", fechaPago=" + fechaPago +
                 ", monto=" + monto +
