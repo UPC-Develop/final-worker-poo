@@ -54,22 +54,21 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "codigoCliente='" + codigoCliente + '\'' +
-                ", direccionInstalacion='" + direccionInstalacion + '\'' +
-                ", tipoServicio='" + tipoServicio + '\'' +
-                ", cicloFacturacion=" + cicloFacturacion.getDayOfMonth() +
-                ", nombre='" + nombre + '\'' +
-                ", apellidoPaterno='" + apellidoPaterno + '\'' +
-                ", apellidoMaterno='" + apellidoMaterno + '\'' +
-                ", tipoDocumento='" + tipoDocumento + '\'' +
-                ", numeroDocumento='" + numeroDocumento + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", edad=" + edad +
-                ", direccion='" + direccion + '\'' +
-                ", distrito='" + distrito + '\'' +
-                ", departamento='" + departamento + '\'' +
-                ", pais='" + pais + '\'' +
+        return "Cliente {" +
+                "Tipo de documento: '" + tipoDocumento + '\'' +
+                ", Número de documento: '" + numeroDocumento + '\'' +
+                ", Nombre: '" + nombre + '\'' +
+                ", Apellido paterno: '" + apellidoPaterno + '\'' +
+                ", Apellido materno: '" + apellidoMaterno + '\'' +
+                ", Fecha de Nacimiento: " + fechaNacimiento +
+                ", Edad: " + edad +
+                ", Dirección de instalacion: '" + direccionInstalacion + '\'' +
+                ", Tipo de servicio: '" + tipoServicio + '\'' +
+                ", Ciclo de facturacion: " + cicloFacturacion.getDayOfMonth() +
+                ", Dirección: '" + direccion + '\'' +
+                ", Distrito: '" + distrito + '\'' +
+                ", Departamento: '" + departamento + '\'' +
+                ", País: '" + pais + '\'' +
                 '}';
     }
 }

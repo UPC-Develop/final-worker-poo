@@ -71,12 +71,11 @@ public class Documento {
     @Override
     public String toString() {
         return "Documento{" +
-                "tipoDocumento='" + tipoDocumento + '\'' +
-                ", numeroDocumento='" + numeroDocumento + '\'' +
-                ", codigoCliente='" + codigoCliente + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", monto=" + monto +
-                ", estado='" + estado + '\'' +
+                "Tipo documento: '" + tipoDocumento + '\'' +
+                ", Número de documento: '" + numeroDocumento + '\'' +
+                ", Número de documento de cliente: '" + codigoCliente + '\'' +
+                ", Monto a pagar=" + monto +
+                ", Estado='" + estado + '\'' +
                 '}';
     }
 }
