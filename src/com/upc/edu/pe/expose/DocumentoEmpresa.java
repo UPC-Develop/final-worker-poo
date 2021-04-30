@@ -2,12 +2,12 @@ package com.upc.edu.pe.expose;
 
 import java.util.ArrayList;
 
-public class DocumentoPago {
+public class DocumentoEmpresa {
 
     private Documento[] documentos;
     private int cantidad;
 
-    public DocumentoPago(int numeroElementos) {
+    public DocumentoEmpresa(int numeroElementos) {
         documentos = new Documento[numeroElementos];
         cantidad = 0;
     }
