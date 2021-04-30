@@ -28,14 +28,12 @@ public class Recibo extends Documento{
     @Override
     public String toString() {
         return "Recibo{" +
-                "fechaEmision=" + fechaEmision +
-                ", fechaPago=" + fechaPago +
-                ", monto=" + monto +
-                ", tipoDocumento='" + tipoDocumento + '\'' +
-                ", numeroDocumento='" + numeroDocumento + '\'' +
-                ", codigoCliente='" + codigoCliente + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", estado='" + estado + '\'' +
+                "Nº de Recibo: '" + numeroDocumento + '\'' +
+                ", Fecha de emisión: " + fechaEmision +
+                ", fecha de vencimiento: " + fechaPago +
+                ", Monto: " + monto +
+                ", Nº de documento del cliente: '" + codigoCliente + '\'' +
+                ", Estado: '" + estado + '\'' +
                 '}';
     }
 }

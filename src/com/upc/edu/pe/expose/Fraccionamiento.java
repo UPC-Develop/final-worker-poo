@@ -77,17 +77,16 @@ public class Fraccionamiento extends Documento {
     @Override
     public String toString() {
         return "Fraccionamiento{" +
-                "fechaSolicitud=" + fechaSolicitud +
-                ", montoTotal=" + montoTotal +
-                ", montoDescuento=" + montoDescuento +
-                ", numeroCuota=" + numeroCuota +
-                ", montoCuota=" + montoCuota +
-                ", tipoDocumento='" + tipoDocumento + '\'' +
-                ", numeroDocumento='" + numeroDocumento + '\'' +
-                ", codigoCliente='" + codigoCliente + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", monto=" + monto +
-                ", estado='" + estado + '\'' +
+                "Tipo de documento de pago: '" + tipoDocumento + '\'' +
+                ", Número de documento de pago: '" + numeroDocumento + '\'' +
+                ", Fecha de solicitud: " + fechaSolicitud +
+                ", Monto total de recibos pendientes: " + String.format("%.2f", montoTotal)  +
+                ", Monto de descuento: " + String.format("%.2f", montoDescuento)  +
+                ", Monto total a pagar: " + String.format("%.2f", monto)  +
+                ", Número de cuotas: " + numeroCuota +
+                ", Monto de cuota: " + String.format("%.2f", montoCuota)  +
+                ", Nº de documento cliente: '" + codigoCliente + '\'' +
+                ", Estado: '" + estado + '\'' +
                 '}';
     }
 }
