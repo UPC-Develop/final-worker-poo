@@ -59,36 +59,36 @@ public class Principal {
         empresa.registrarPersona(clienteTres);
     }
     public static void cargarRecibo() {
-        Recibo reciboUno = new Recibo("Recibo", "F374829289",
+        Recibo reciboUno = new Recibo("RECIBO", "F374829289",
                 "45767876","", 165.80, "Pagado", LocalDate.of(2021, Month.JANUARY, 15),
                 LocalDate.of(2021, Month.FEBRUARY, 15));
-        Recibo reciboDos = new Recibo("Recibo", "F374829290",
+        Recibo reciboDos = new Recibo("RECIBO", "F374829290",
                 "45767876", "", 165.80, "Pagado", LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15));
-        Recibo reciboTres = new Recibo("Recibo", "F374829291",
+        Recibo reciboTres = new Recibo("RECIBO", "F374829291",
                 "45767876", "",165.80, "Pendiente",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
 
-        Recibo reciboCuatro = new Recibo("Recibo", "F789876568",
+        Recibo reciboCuatro = new Recibo("RECIBO", "F789876568",
                 "45675456","", 45.50, "Disputa",
                 LocalDate.of(2020, Month.DECEMBER, 15), LocalDate.of(2021, Month.JANUARY, 15));
-        Recibo reciboCinco = new Recibo("Recibo", "F789876569","45675456",
+        Recibo reciboCinco = new Recibo("RECIBO", "F789876569","45675456",
                 "",45.50,"Pagado",
                 LocalDate.of(2021, Month.JANUARY, 15), LocalDate.of(2021, Month.FEBRUARY, 15));
-        Recibo reciboSeis = new Recibo("Recibo", "F789876570",
+        Recibo reciboSeis = new Recibo("RECIBO", "F789876570",
                 "45675456","",45.50,"Pagado",
                 LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15));
-        Recibo reciboSiete = new Recibo("Recibo", "F789876571",
+        Recibo reciboSiete = new Recibo("RECIBO", "F789876571",
                 "45675456","", 45.50, "Pendiente",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
 
 
-        Recibo reciboOcho = new Recibo("Recibo", "F656898761",
+        Recibo reciboOcho = new Recibo("RECIBO", "F656898761",
                 "114567876","", 120,"Pagado",
                 LocalDate.of(2021, Month.JANUARY, 15), LocalDate.of(2021, Month.FEBRUARY, 15));
-        Recibo reciboNueve = new Recibo("Recibo", "F656898762",
+        Recibo reciboNueve = new Recibo("RECIBO", "F656898762",
                 "114567876","", 120, "Pagado",
                 LocalDate.of(2021, Month.FEBRUARY, 15), LocalDate.of(2021, Month.MARCH, 15));
-        Recibo reciboDiez = new Recibo("Recibo", "F656898763",
+        Recibo reciboDiez = new Recibo("RECIBO", "F656898763",
                 "114567876","", 120,"Pagado",
                 LocalDate.of(2021, Month.MARCH, 15), LocalDate.of(2021, Month.APRIL, 15));
 
