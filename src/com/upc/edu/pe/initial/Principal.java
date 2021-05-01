@@ -162,16 +162,15 @@ public class Principal {
                             solicitudfraccionamiento.getDescripcion(),0, solicitudfraccionamiento.getEstado(), solicitudfraccionamiento.getFechaSolicitud(),
                             totalMontoRecibo, 0,0, 0 );
 
-                    montoDescuento = fraccionamiento.getMontoDescuento();
+                    montoDescuento = fraccionamiento.calcularMontoDescuento();
                     fraccionamiento.setMontoDescuento(montoDescuento);
-                    numeroCuota =fraccionamiento.getNumeroCuota();
+                    numeroCuota =fraccionamiento.calcularNumeroCuota();
                     fraccionamiento.setNumeroCuota(numeroCuota);
-                    montoCuota = fraccionamiento.getMontoCuota();
+                    montoCuota = fraccionamiento.calcularMontoCuota();
                     fraccionamiento.setMontoCuota(montoCuota);
                     fraccionamiento.setMonto(totalMontoRecibo-montoDescuento);
                     documentoEmpresa.registrarDocumento(fraccionamiento);
 
-                    System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println(fraccionamiento);
                 }
             }

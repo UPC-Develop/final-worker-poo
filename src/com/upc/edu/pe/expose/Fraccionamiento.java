@@ -14,52 +14,53 @@ public class Fraccionamiento extends Documento {
     }
 
     public LocalDate fechaSolicitud;
-    public double montoTotal;
-    public double montoDescuento;
-    public int numeroCuota;
-    public double montoCuota;
 
     public LocalDate getFechaSolicitud() {
         return fechaSolicitud;
-    }
-
-    public void setFechaSolicitud(LocalDate fechaSolicitud) {
-        this.fechaSolicitud = fechaSolicitud;
     }
 
     public double getMontoTotal() {
         return montoTotal;
     }
 
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
+    public double getMontoDescuento() {
+        return montoDescuento;
     }
 
     public void setMontoDescuento(double montoDescuento) {
         this.montoDescuento = montoDescuento;
     }
 
-
+    public int getNumeroCuota() {
+        return numeroCuota;
+    }
 
     public void setNumeroCuota(int numeroCuota) {
         this.numeroCuota = numeroCuota;
     }
 
-
+    public double getMontoCuota() {
+        return montoCuota;
+    }
 
     public void setMontoCuota(double montoCuota) {
         this.montoCuota = montoCuota;
     }
 
+    public double montoTotal;
+    public double montoDescuento;
+    public int numeroCuota;
+    public double montoCuota;
 
-    public double getMontoDescuento() {
+
+    public double calcularMontoDescuento() {
         if (getMontoTotal() > 150){
             montoDescuento = getMontoTotal() * 0.2;
         }
         return montoDescuento;
     }
 
-    public int getNumeroCuota() {
+    public int calcularNumeroCuota() {
 
         if ((getMontoTotal() - getMontoDescuento()) > 100 )
             numeroCuota = 4;
@@ -69,10 +70,12 @@ public class Fraccionamiento extends Documento {
         return numeroCuota;
     }
 
-    public double getMontoCuota() {
+
+    public double calcularMontoCuota() {
         montoCuota = (getMontoTotal()-getMontoDescuento())/ getNumeroCuota();
         return montoCuota;
     }
+
 
     @Override
     public  String generarNumeroDocumento(){
