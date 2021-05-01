@@ -14,52 +14,53 @@ public class Fraccionamiento extends Documento {
     }
 
     public LocalDate fechaSolicitud;
-    public double montoTotal;
-    public double montoDescuento;
-    public int numeroCuota;
-    public double montoCuota;
 
     public LocalDate getFechaSolicitud() {
         return fechaSolicitud;
-    }
-
-    public void setFechaSolicitud(LocalDate fechaSolicitud) {
-        this.fechaSolicitud = fechaSolicitud;
     }
 
     public double getMontoTotal() {
         return montoTotal;
     }
 
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
+    public double getMontoDescuento() {
+        return montoDescuento;
     }
 
     public void setMontoDescuento(double montoDescuento) {
         this.montoDescuento = montoDescuento;
     }
 
-
+    public int getNumeroCuota() {
+        return numeroCuota;
+    }
 
     public void setNumeroCuota(int numeroCuota) {
         this.numeroCuota = numeroCuota;
     }
 
-
+    public double getMontoCuota() {
+        return montoCuota;
+    }
 
     public void setMontoCuota(double montoCuota) {
         this.montoCuota = montoCuota;
     }
 
+    public double montoTotal;
+    public double montoDescuento;
+    public int numeroCuota;
+    public double montoCuota;
 
-    public double getMontoDescuento() {
+
+    public double calcularMontoDescuento() {
         if (getMontoTotal() > 150){
             montoDescuento = getMontoTotal() * 0.2;
         }
         return montoDescuento;
     }
 
-    public int getNumeroCuota() {
+    public int calcularNumeroCuota() {
 
         if ((getMontoTotal() - getMontoDescuento()) > 100 )
             numeroCuota = 4;
@@ -69,16 +70,23 @@ public class Fraccionamiento extends Documento {
         return numeroCuota;
     }
 
-    public double getMontoCuota() {
+
+    public double calcularMontoCuota() {
         montoCuota = (getMontoTotal()-getMontoDescuento())/ getNumeroCuota();
         return montoCuota;
     }
 
+
+    @Override
+    public  String generarNumeroDocumento(){
+        return  'F' + super.generarNumeroDocumento();
+    }
+
     @Override
     public String toString() {
-        return "Fraccionamiento{" +
-                "Tipo de documento de pago: '" + tipoDocumento + '\'' +
-                ", Número de documento de pago: '" + numeroDocumento + '\'' +
+        return "Solicitud de Fraccionamiento { " +
+                "Tipo de documento: '" + tipoDocumento + '\'' +
+                ", Nº de solicitud Fraccionamiento: '" + numeroDocumento + '\'' +
                 ", Fecha de solicitud: " + fechaSolicitud +
                 ", Monto total de recibos pendientes: " + String.format("%.2f", montoTotal)  +
                 ", Monto de descuento: " + String.format("%.2f", montoDescuento)  +
@@ -86,7 +94,7 @@ public class Fraccionamiento extends Documento {
                 ", Número de cuotas: " + numeroCuota +
                 ", Monto de cuota: " + String.format("%.2f", montoCuota)  +
                 ", Nº de documento cliente: '" + codigoCliente + '\'' +
-                ", Estado: '" + estado + '\'' +
+                ", Estado de solicitud: '" + estado + '\'' +
                 '}';
     }
 }

@@ -14,7 +14,6 @@ public class Recibo extends Documento{
         this.fechaPago = fechaPago;
     }
 
-
     public LocalDate getFechaEmision() {
         return fechaEmision;
     }
@@ -23,11 +22,15 @@ public class Recibo extends Documento{
         return fechaPago;
     }
 
-
+    @Override
+    public  String generarNumeroDocumento(){
+        return  'R' + super.generarNumeroDocumento();
+    }
 
     @Override
     public String toString() {
-        return "Recibo{" +
+        return "Recibo { " +
+                "Tipo de documento: '" + tipoDocumento + '\'' +
                 "Nº de Recibo: '" + numeroDocumento + '\'' +
                 ", Fecha de emisión: " + fechaEmision +
                 ", fecha de vencimiento: " + fechaPago +
