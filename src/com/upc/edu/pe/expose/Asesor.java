@@ -14,8 +14,8 @@ public class Asesor extends Persona implements Usuario {
 
     }
 
-    public Asesor(String nombre, String apellidoPaterno, String apellidoMaterno, String tipoDocumento, String numeroDocumento, LocalDate fechaNacimiento, Integer edad, String direccion, String distrito, String departamento, String pais, String usuario, String clave, String codigoAsesor) {
-        super(nombre, apellidoPaterno, apellidoMaterno, tipoDocumento, numeroDocumento, fechaNacimiento, edad, direccion, distrito, departamento, pais);
+    public Asesor(String nombre, String apellidoPaterno, String apellidoMaterno, String tipoDocumento, String numeroDocumento, LocalDate fechaNacimiento, String direccion, String distrito, String departamento, String pais, String usuario, String clave, String codigoAsesor) {
+        super(nombre, apellidoPaterno, apellidoMaterno, tipoDocumento, numeroDocumento, fechaNacimiento, direccion, distrito, departamento, pais);
         this.usuario = usuario;
         this.clave = clave;
         this.codigoAsesor = codigoAsesor;
@@ -47,25 +47,6 @@ public class Asesor extends Persona implements Usuario {
         this.clave = clave;
     }
 
-    @Override
-    public String toString() {
-        return "Asesor{" +
-                "codigoAsesor='" + codigoAsesor + '\'' +
-                ", usuario='" + usuario + '\'' +
-                ", clave='" + clave + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellidoPaterno='" + apellidoPaterno + '\'' +
-                ", apellidoMaterno='" + apellidoMaterno + '\'' +
-                ", tipoDocumento='" + tipoDocumento + '\'' +
-                ", numeroDocumento='" + numeroDocumento + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", edad=" + edad +
-                ", direccion='" + direccion + '\'' +
-                ", distrito='" + distrito + '\'' +
-                ", departamento='" + departamento + '\'' +
-                ", pais='" + pais + '\'' +
-                '}';
-    }
 
     @Override
     public boolean validarUsuario(String usuario, String clave) throws UsuarioNoEncontradoException {

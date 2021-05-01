@@ -4,6 +4,11 @@ public class Documento {
 
 
     public String tipoDocumento;
+    public String numeroDocumento;
+    public String codigoCliente;
+    public String descripcion;
+    public double monto;
+    public String estado;
 
     public Documento(String tipoDocumento, String numeroDocumento, String codigoCliente, String descripcion, double monto, String estado) {
         this.tipoDocumento = tipoDocumento;
@@ -14,42 +19,22 @@ public class Documento {
         this.estado = estado;
     }
 
-    public String numeroDocumento;
-    public String codigoCliente;
-    public String descripcion;
-    public double monto;
-    public String estado;
+
 
     public String getTipoDocumento() {
         return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
     }
 
     public String getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
     public String getCodigoCliente() {
         return codigoCliente;
     }
 
-    public void setCodigoCliente(String codigoCliente) {
-        this.codigoCliente = codigoCliente;
-    }
-
     public String getDescripcion() {
         return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public double getMonto() {
@@ -64,18 +49,8 @@ public class Documento {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public  String generarNumeroDocumento(){
+            return String.valueOf((int)(1000000000 * Math.random()));
     }
 
-    @Override
-    public String toString() {
-        return "Documento{" +
-                "Tipo documento: '" + tipoDocumento + '\'' +
-                ", Número de documento: '" + numeroDocumento + '\'' +
-                ", Número de documento de cliente: '" + codigoCliente + '\'' +
-                ", Monto a pagar=" + monto +
-                ", Estado='" + estado + '\'' +
-                '}';
-    }
 }

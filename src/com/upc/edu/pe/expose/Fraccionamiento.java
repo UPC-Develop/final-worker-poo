@@ -75,10 +75,15 @@ public class Fraccionamiento extends Documento {
     }
 
     @Override
+    public  String generarNumeroDocumento(){
+        return  'F' + super.generarNumeroDocumento();
+    }
+
+    @Override
     public String toString() {
-        return "Fraccionamiento{" +
-                "Tipo de documento de pago: '" + tipoDocumento + '\'' +
-                ", Número de documento de pago: '" + numeroDocumento + '\'' +
+        return "Solicitud de Fraccionamiento { " +
+                "Tipo de documento: '" + tipoDocumento + '\'' +
+                ", Nº de solicitud Fraccionamiento: '" + numeroDocumento + '\'' +
                 ", Fecha de solicitud: " + fechaSolicitud +
                 ", Monto total de recibos pendientes: " + String.format("%.2f", montoTotal)  +
                 ", Monto de descuento: " + String.format("%.2f", montoDescuento)  +
@@ -86,7 +91,7 @@ public class Fraccionamiento extends Documento {
                 ", Número de cuotas: " + numeroCuota +
                 ", Monto de cuota: " + String.format("%.2f", montoCuota)  +
                 ", Nº de documento cliente: '" + codigoCliente + '\'' +
-                ", Estado: '" + estado + '\'' +
+                ", Estado de solicitud: '" + estado + '\'' +
                 '}';
     }
 }
